@@ -1,6 +1,7 @@
 import pygame
 from pygame.locals import *
 from event import *
+from game_locals import *
 
 
 class KeyboardController:
@@ -20,7 +21,7 @@ class KeyboardController:
                     if key == K_ESCAPE:
                         ev = QuitEvent()
                     elif key == K_UP:
-                        direction = "up"
+                        direction = DIRECTION_UP
                         ev = CharactorMoveRequest(direction)
 
                 if ev:

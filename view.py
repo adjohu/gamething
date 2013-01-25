@@ -1,5 +1,6 @@
 import pygame
 from event import *
+from sprites import *
 
 
 class View:
@@ -18,7 +19,22 @@ class View:
 
     def ShowCharactor(self, charactor):
         charactorSprite = CharactorSprite(self.frontSprites)
+        charactorSprite.rect.move(charactor.x, charactor.y)
+
+    def Draw(self):
+        self.frontSprites.clear(self.window, self.background)
+
+        # Group.update -> calls update() on each sprite in group
+        self.frontSprites.update()
+
+        updatedRect = self.frontSprites.draw()
+
+        # Update the area of the display changed in the above draw call
+        pygame.display.update(updatedRect)
 
     def Notify(self, event):
         if isinstance(event, TickEvent):
             pygame.display.update()
+
+        elif isinstance(event, CharactorPlaceEvent):
+            self.ShowCharactor(event.charactor)

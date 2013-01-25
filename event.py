@@ -41,3 +41,15 @@ class CharactorMoveRequest(Event):
     def __init__(self, direction):
         self.name = "CharactorMoveRequest"
         self.direction = direction
+
+
+class CharactorPlaceRequest(Event):
+    def __init__(self, charactor):
+        self.name = "CharactorPlaceRequest"
+        self.charactor = charactor
+
+
+class CharactorPlaceEvent(Event):
+    def __init__(self, charactor):
+        self.name = "CharactorPlaceEvent"
+        self.charactor = charactor

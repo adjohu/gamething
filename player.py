@@ -11,4 +11,4 @@ class Player:
 
     def Notify(self, event):
         if isinstance(event, CharactorMoveRequest):
-            print "a"
+            print "charctor move request", event.direction
