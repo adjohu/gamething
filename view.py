@@ -27,14 +27,14 @@ class View:
         # Group.update -> calls update() on each sprite in group
         self.frontSprites.update()
 
-        updatedRect = self.frontSprites.draw()
+        updatedRect = self.frontSprites.draw(self.window)
 
         # Update the area of the display changed in the above draw call
         pygame.display.update(updatedRect)
 
     def Notify(self, event):
         if isinstance(event, TickEvent):
-            pygame.display.update()
+            self.Draw()
 
         elif isinstance(event, CharactorPlaceEvent):
             self.ShowCharactor(event.charactor)

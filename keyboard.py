@@ -23,6 +23,15 @@ class KeyboardController:
                     elif key == K_UP:
                         direction = DIRECTION_UP
                         ev = CharactorMoveRequest(direction)
+                    elif key == K_DOWN:
+                        direction = DIRECTION_DOWN
+                        ev = CharactorMoveRequest(direction)
+                    elif key == K_LEFT:
+                        direction = DIRECTION_LEFT
+                        ev = CharactorMoveRequest(direction)
+                    elif key == K_RIGHT:
+                        direction = DIRECTION_RIGHT
+                        ev = CharactorMoveRequest(direction)
 
                 if ev:
                     self.evManager.Post(ev)

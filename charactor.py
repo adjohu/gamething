@@ -1,5 +1,6 @@
 from event import *
 from entity import Entity
+from game_locals import *
 
 
 class Charactor(Entity):
@@ -7,8 +8,14 @@ class Charactor(Entity):
         self.evManager = evManager
         self.evManager.RegisterListener(self)
 
+        self.moveAmount = 10
+
     def Move(self, direction):
-        print "move", direction
+        if direction == DIRECTION_LEFT:
+            self.x -= self.moveAmount
+        elif direction == DIRECTION_RIGHT:
+            self.x += self.moveAmount
+            print self.x
 
     def Place(self, x, y):
         self.x = x
