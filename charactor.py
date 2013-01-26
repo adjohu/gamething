@@ -20,7 +20,7 @@ class Charactor(Entity):
 
     def Place(self, x, y):
         self.sprite.moveTo = (x, y)
-
+        print "place called"
         ev = CharactorPlaceEvent(self)
         self.evManager.Post(ev)
 

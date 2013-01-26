@@ -13,7 +13,6 @@ class View:
         self.window = pygame.display.set_mode((600, 300))
         self.background = pygame.display.get_surface()
         pygame.display.set_caption("Game")
-        self.background.fill((0, 0, 0))
 
         self.frontSprites = pygame.sprite.RenderUpdates()
 
@@ -23,10 +22,12 @@ class View:
     def Draw(self):
         self.frontSprites.clear(self.window, self.background)
 
+        self.background.fill((0, 0, 0))
         # Group.update -> calls update() on each sprite in group
         self.frontSprites.update()
 
         dirty = self.frontSprites.draw(self.window)
+        print dirty
 
         # Update the area of the display changed in the above draw call
         pygame.display.flip()
