@@ -19,8 +19,7 @@ class Charactor(Entity):
             self.x += self.moveAmount
 
     def Place(self, x, y):
-        self.sprite.rect.x = x
-        self.sprite.rect.y = y
+        self.sprite.moveTo = (x, y)
 
         ev = CharactorPlaceEvent(self)
         self.evManager.Post(ev)
@@ -28,6 +27,8 @@ class Charactor(Entity):
     def Notify(self, event):
         if isinstance(event, GameStartedEvent):
             self.Place(100, 100)
+            ev = CharactorAddEvent(self)
+            self.evManager.Post(ev)
 
         elif isinstance(event, CharactorPlaceRequest):
             self.Place(event.x, event.y)

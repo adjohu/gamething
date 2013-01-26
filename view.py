@@ -17,10 +17,8 @@ class View:
 
         self.frontSprites = pygame.sprite.RenderUpdates()
 
-    def ShowCharactor(self, charactor):
-        print self.frontSprites
-        charactorSprite = charactor.sprite
-        charactorSprite.add(self.frontSprites)
+    def AddCharactor(self, charactor):
+        charactor.sprite.add(self.frontSprites)
 
     def Draw(self):
         self.frontSprites.clear(self.window, self.background)
@@ -28,14 +26,15 @@ class View:
         # Group.update -> calls update() on each sprite in group
         self.frontSprites.update()
 
-        updatedRect = self.frontSprites.draw(self.window)
+        dirty = self.frontSprites.draw(self.window)
 
         # Update the area of the display changed in the above draw call
-        pygame.display.update(updatedRect)
+        pygame.display.flip()
 
     def Notify(self, event):
         if isinstance(event, TickEvent):
             self.Draw()
 
-        elif isinstance(event, CharactorPlaceEvent):
-            self.ShowCharactor(event.charactor)
+        elif isinstance(event, CharactorAddEvent):
+            id(event.charactor)
+            self.AddCharactor(event.charactor)

@@ -12,7 +12,6 @@ class CharactorSprite(pygame.sprite.Sprite):
         pygame.draw.circle(charactorSurf, (255, 0, 0), (32, 32), 32)
         self.image = charactorSurf
         self.rect = charactorSurf.get_rect()
-
         self.moveTo = None
 
     def update(self):
