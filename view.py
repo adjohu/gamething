@@ -18,8 +18,9 @@ class View:
         self.frontSprites = pygame.sprite.RenderUpdates()
 
     def ShowCharactor(self, charactor):
-        charactorSprite = CharactorSprite(self.frontSprites)
-        charactorSprite.rect.move(charactor.x, charactor.y)
+        print self.frontSprites
+        charactorSprite = charactor.sprite
+        charactorSprite.add(self.frontSprites)
 
     def Draw(self):
         self.frontSprites.clear(self.window, self.background)

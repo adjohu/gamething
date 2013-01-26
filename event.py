@@ -44,9 +44,10 @@ class CharactorMoveRequest(Event):
 
 
 class CharactorPlaceRequest(Event):
-    def __init__(self, charactor):
+    def __init__(self, x, y):
         self.name = "CharactorPlaceRequest"
-        self.charactor = charactor
+        self.x = x
+        self.y = y
 
 
 class CharactorPlaceEvent(Event):

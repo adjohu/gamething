@@ -16,6 +16,7 @@ class KeyboardController:
                 ev = None
                 if event.type == QUIT:
                     ev = QuitEvent()
+
                 if event.type == KEYDOWN:
                     key = event.key
                     if key == K_ESCAPE:
@@ -32,6 +33,10 @@ class KeyboardController:
                     elif key == K_RIGHT:
                         direction = DIRECTION_RIGHT
                         ev = CharactorMoveRequest(direction)
+
+                if event.type == MOUSEBUTTONDOWN:
+                    pos = pygame.mouse.get_pos()
+                    ev = CharactorPlaceRequest(pos[0], pos[1])
 
                 if ev:
                     self.evManager.Post(ev)

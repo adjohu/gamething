@@ -2,7 +2,9 @@ import pygame
 
 
 class CharactorSprite(pygame.sprite.Sprite):
-    def __init__(self, group=None):
+    CharactorSpriteGroup = pygame.sprite.RenderUpdates()
+
+    def __init__(self, group=CharactorSpriteGroup):
         pygame.sprite.Sprite.__init__(self, group)
 
         charactorSurf = pygame.Surface((64, 64))
