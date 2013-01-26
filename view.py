@@ -27,10 +27,9 @@ class View:
         self.frontSprites.update()
 
         dirty = self.frontSprites.draw(self.window)
-        print dirty
 
         # Update the area of the display changed in the above draw call
-        pygame.display.flip()
+        pygame.display.update(dirty)
 
     def Notify(self, event):
         if isinstance(event, TickEvent):
