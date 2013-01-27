@@ -1,5 +1,5 @@
 import pygame
-from event import *
+from events import *
 from sprites import *
 
 
@@ -10,17 +10,18 @@ class View:
 
         pygame.init()
 
+        pygame.display.set_caption("Game")
+
         self.window = pygame.display.set_mode((600, 300))
         self.background = pygame.display.get_surface()
-        pygame.display.set_caption("Game")
 
         self.frontSprites = pygame.sprite.RenderUpdates()
 
     def AddCharactor(self, charactor):
         charactor.sprite.add(self.frontSprites)
 
-    def MoveCharactor(self, charactor):
-        charactor.sprite.moveTo = (charactor.x, charactor.y)
+    def MoveEntity(self, entity):
+        entity.sprite.moveTo = (entity.x, entity.y)
 
     def Draw(self):
         self.background.fill((0, 0, 0))
@@ -40,8 +41,7 @@ class View:
             self.Draw()
 
         elif isinstance(event, CharactorAddEvent):
-            id(event.charactor)
             self.AddCharactor(event.charactor)
 
-        elif isinstance(event, CharactorMoveEvent):
-            self.MoveCharactor(event.charactor)
+        elif isinstance(event, EntityMoveEvent):
+            self.MoveEntity(event.entity)

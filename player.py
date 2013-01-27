@@ -1,4 +1,4 @@
-from event import *
+from events import *
 from charactor import Charactor
 
 

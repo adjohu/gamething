@@ -1,5 +1,5 @@
 import pygame
-from event import *
+from events import *
 
 
 class TickController:

@@ -1,5 +1,5 @@
 from player import Player
-from event import *
+from events import *
 
 
 class Game:

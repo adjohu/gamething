@@ -1,4 +1,4 @@
-from event import EventManager
+from event_manager import EventManager
 from tick import TickController
 from keyboard import KeyboardController
 from view import View
@@ -11,9 +11,9 @@ def main():
     evManager = EventManager()
 
     tick = TickController(evManager)
+    world = World(evManager)
     view = View(evManager)
     game = Game(evManager)
-    world = World(evManager)
     keyboard = KeyboardController(evManager)
 
     tick.Run()

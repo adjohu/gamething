@@ -1,6 +1,6 @@
 import pygame
 from pygame.locals import *
-from event import *
+from events import *
 from game_locals import *
 
 
@@ -33,6 +33,8 @@ class KeyboardController:
                     elif key == K_RIGHT:
                         direction = DIRECTION_RIGHT
                         ev = CharactorMoveRequest(direction)
+                    else:
+                        ev = CharactorStopMovingRequest()
 
                 if event.type == MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()
