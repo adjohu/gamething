@@ -19,10 +19,14 @@ class View:
     def AddCharactor(self, charactor):
         charactor.sprite.add(self.frontSprites)
 
+    def MoveCharactor(self, charactor):
+        charactor.sprite.moveTo = (charactor.x, charactor.y)
+
     def Draw(self):
+        self.background.fill((0, 0, 0))
+
         self.frontSprites.clear(self.window, self.background)
 
-        self.background.fill((0, 0, 0))
         # Group.update -> calls update() on each sprite in group
         self.frontSprites.update()
 
@@ -38,3 +42,6 @@ class View:
         elif isinstance(event, CharactorAddEvent):
             id(event.charactor)
             self.AddCharactor(event.charactor)
+
+        elif isinstance(event, CharactorMoveEvent):
+            self.MoveCharactor(event.charactor)

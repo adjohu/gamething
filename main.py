@@ -1,9 +1,9 @@
 from event import EventManager
 from tick import TickController
 from keyboard import KeyboardController
-from player import Player
 from view import View
 from game import Game
+from world import World
 
 
 def main():
@@ -13,6 +13,7 @@ def main():
     tick = TickController(evManager)
     view = View(evManager)
     game = Game(evManager)
+    world = World(evManager)
     keyboard = KeyboardController(evManager)
 
     tick.Run()

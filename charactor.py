@@ -6,6 +6,7 @@ from sprites import CharactorSprite
 
 class Charactor(Entity):
     def __init__(self, evManager):
+        Entity.__init__(self)
         self.evManager = evManager
         self.evManager.RegisterListener(self)
         self.sprite = CharactorSprite()
@@ -18,10 +19,14 @@ class Charactor(Entity):
         elif direction == DIRECTION_RIGHT:
             self.x += self.moveAmount
 
+        ev = CharactorMoveEvent(self)
+        self.evManager.Post(ev)
+
     def Place(self, x, y):
-        self.sprite.moveTo = (x, y)
-        print "place called"
-        ev = CharactorPlaceEvent(self)
+        self.x = x
+        self.y = y
+
+        ev = CharactorMoveEvent(self)
         self.evManager.Post(ev)
 
     def Notify(self, event):

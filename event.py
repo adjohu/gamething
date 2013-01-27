@@ -50,7 +50,7 @@ class CharactorPlaceRequest(Event):
         self.y = y
 
 
-class CharactorPlaceEvent(Event):
+class CharactorMoveEvent(Event):
     def __init__(self, charactor):
         self.name = "CharactorPlaceEvent"
         self.charactor = charactor
@@ -60,4 +60,3 @@ class CharactorAddEvent(Event):
     def __init__(self, charactor):
         self.name = "CharactorAddEvent"
         self.charactor = charactor
-
