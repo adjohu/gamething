@@ -24,7 +24,8 @@ class View:
         charactor.sprite.add(self.frontSprites)
 
     def MoveEntity(self, entity):
-        entity.sprite.moveTo = (entity.x, entity.y)
+        rounded = (round(entity.x), round(entity.y))
+        entity.sprite.moveTo = rounded
 
     def Draw(self):
         self.background.fill((0, 0, 0))

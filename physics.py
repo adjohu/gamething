@@ -1,5 +1,5 @@
 class Physics:
-    GRAVITY = 1
+    GRAVITY = 9.81
 
     def __init__(self, evManager):
         self.evManager = evManager

@@ -18,7 +18,7 @@ class Entity(object):
         self.evManager.Post(ev)
 
     def UpdatePosition(self, delta_time):
-        self.y += round(PX_IN_METRE * self.y_vel * delta_time, 1)
+        self.y += PX_IN_METRE * self.y_vel * delta_time
 
         ev = EntityMoveEvent(self)
         self.evManager.Post(ev)
