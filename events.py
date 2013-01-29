@@ -15,8 +15,9 @@ class QuitEvent(Event):
 
 
 class TickEvent(Event):
-    def __init__(self):
+    def __init__(self, delta_time):
         self.name = "Tick"
+        self.delta_time = delta_time
 
 
 class CharactorMoveRequest(Event):

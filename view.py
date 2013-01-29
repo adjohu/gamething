@@ -4,6 +4,9 @@ from sprites import *
 
 
 class View:
+    WIDTH = 800
+    HEIGHT = 600
+
     def __init__(self, evManager):
         self.evManager = evManager
         self.evManager.RegisterListener(self)
@@ -12,7 +15,7 @@ class View:
 
         pygame.display.set_caption("Game")
 
-        self.window = pygame.display.set_mode((600, 300))
+        self.window = pygame.display.set_mode((self.WIDTH, self.HEIGHT))
         self.background = pygame.display.get_surface()
 
         self.frontSprites = pygame.sprite.RenderUpdates()

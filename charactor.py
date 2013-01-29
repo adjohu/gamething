@@ -25,6 +25,8 @@ class Charactor(Entity):
         self.x = x
         self.y = y
 
+        self.Reset()
+
         ev = EntityMoveEvent(self)
         self.evManager.Post(ev)
 
